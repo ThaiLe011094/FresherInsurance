@@ -1,63 +1,57 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+@SuppressWarnings("serial")
 public class Agent implements Serializable {
 
 	@Size(min=3, max=30) 
+	@NotEmpty
 	private String agentName;
 	
 	@Email @NotEmpty
-	private String address;
+	private String agentAddress;
 	
 	@NotEmpty @NumberFormat
-	private Number phone;
+	private Number agentPhone;
 	
-	@NotEmpty
-	private List<String> subjects = new ArrayList<String>();
 
-	public String getName() {
+	public String getagentName() {
 		return agentName;
 	}
 
-	public void setName(String firstName) {
+	public void setName(String agentName) {
 		this.agentName = agentName;
 	}
 
 	public String getAddress() {
-		return address;
+		return agentAddress;
 	}
 
-	public void setAdress(String address) {
-		this.address = address;
+	public void setAdress(String agentAddress) {
+		this.agentAddress = agentAddress;
 	}
 
-	public Number phone() {
-		return phone;
+	public Number agentPhone() {
+		return agentPhone;
 	}
 
-	public void setphone(Number phone) {
-		this.phone = phone;
+	public void setphone(Number agentPhone) {
+		this.agentPhone = agentPhone;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Agent [name=" + agentName + ", address=" + address
-				+ ", phone=" + phone + "]";
+		return "Agent [name=" + agentName + ", agentAddress=" + agentAddress
+				+ ", agentPhone=" + agentPhone + "]";
 	}
 
 }
