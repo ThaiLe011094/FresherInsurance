@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.Agent" table="Contract"> 
+        <id name="agentId" type="int">
+            <column name="IDAgent" />
+            <generator class="increment" />
+        </id>
+        <property name="agentName" type="string">
+            <column name="Name" />
+        </property>
+		<property name="agentAddress" type="string">
+            <column name="Address" />
+        </property>
+        <property name="agentPhone" type="string">
+            <column name="Mobile" />
+        </property>
+    </class>
+</hibernate-mapping>
