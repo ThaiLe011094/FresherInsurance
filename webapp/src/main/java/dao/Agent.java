@@ -1,4 +1,4 @@
-package model;
+package dao;
 
 import java.io.Serializable;
 
@@ -8,11 +8,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.NumberFormat;
 
-@SuppressWarnings("serial")
-public class Agent implements Serializable {
+public class Agent {
+	
+	public Agent(){
+		
+	}
 
 	@NotEmpty
-	private Number agentId;
+	private int agentId;
 	
 	@Size(min=3, max=30) 
 	@NotEmpty
@@ -25,14 +28,19 @@ public class Agent implements Serializable {
 	@NotEmpty
 	private String agentPhone;
 	
-	
-	
-	public Number getAgentId() {
+	public Agent(String agentName, String agentAddress, String agentPhone) {
+		super();
+		this.agentName = agentName;
+		this.agentAddress = agentAddress;
+		this.agentPhone = agentPhone;
+	}
+
+	public int getAgentId() {
 		return agentId;
 	}
 
 
-	public void setAgentId(Number agentId) {
+	public void setAgentId(int agentId) {
 		this.agentId = agentId;
 	}
 

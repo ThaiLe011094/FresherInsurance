@@ -8,7 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.Agent;
+import dao.Agent;
 
 @Controller
 @RequestMapping("/")
@@ -31,11 +31,11 @@ public class AgentController {
 	public String saveRegistration(@Valid Agent agent, BindingResult result, ModelMap model) {
 
 		if (result.hasErrors()) {
-			return "agentCreate";
+			return "header";
 		}
 
 		model.addAttribute("success", "Dear " + agent.getAgentName() + " , your Registration completed successfully");
-		return "agentCreate";
+		return "header";
 	}
 
 	
