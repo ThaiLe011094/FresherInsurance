@@ -31,7 +31,7 @@ public class AgentController {
 	@RequestMapping("/agent-view/{agentId}")
 	public String viewAgent(@PathVariable int agentId, Model model) {
 		Agent agent = agentService.findById(agentId);
-		model.addAttribute("customer", agent);
+		model.addAttribute("agent", agent);
 		return "agent-view";
 	}
 	

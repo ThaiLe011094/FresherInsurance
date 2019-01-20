@@ -39,6 +39,6 @@ public class AgentDao {
 
 	public List<Agent> findAll() {
 		Session session = this.sessionFactory.getCurrentSession();
-		return session.createQuery("FROM Customer", Agent.class).getResultList();
+		return session.createQuery("FROM Agent", Agent.class).getResultList();
 	}
 }

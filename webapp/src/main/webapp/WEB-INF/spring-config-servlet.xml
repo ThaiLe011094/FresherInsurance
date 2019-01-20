@@ -47,10 +47,9 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="packagesToScan" value="stackjava.com.springmvchibernate.entities" />
+		<property name="packagesToScan" value="dxc.com.sompo.entities" />
 		<property name="hibernateProperties" value="classpath:hibernate.properties" />
 	</bean>
 
-	<mvc:default-servlet-handler/>
 
 </beans>

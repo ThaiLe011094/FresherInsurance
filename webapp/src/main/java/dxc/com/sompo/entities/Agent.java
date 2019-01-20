@@ -6,9 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+//import javax.validation.constraints.Size;
+//import org.hibernate.validator.constraints.Email;
+//import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "agent")
@@ -19,18 +19,18 @@ public class Agent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int agentId;
 
-	@Size(min = 3, max = 30)
-	@NotEmpty
+//	@Size(min = 3, max = 30)
+//	@NotEmpty
 	@Column(name = "agentName")
 	private String agentName;
 
-	@Email
-	@NotEmpty
+//	@Email
+//	@NotEmpty
 	@Column(name = "agentAddress")
 	private String agentAddress;
 
-	@Size(min = 10, max = 10)
-	@NotEmpty
+//	@Size(min = 10, max = 10)
+//	@NotEmpty
 	@Column(name = "agentPhone")
 	private String agentPhone;
 	

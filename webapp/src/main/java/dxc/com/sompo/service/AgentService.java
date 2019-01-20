@@ -20,8 +20,8 @@ public class AgentService {
 		return agentDao.findAll();
 	}
 
-	public Agent findById(final int id) {
-		return agentDao.findById(id);
+	public Agent findById(final int agentId) {
+		return agentDao.findById(agentId);
 	}
 
 	public void save(final Agent agent) {
@@ -32,8 +32,8 @@ public class AgentService {
 		agentDao.update(agent);
 	}
 
-	public void delete(final int id) {
-		Agent agent = agentDao.findById(id);
+	public void delete(final int agentId) {
+		Agent agent = agentDao.findById(agentId);
 		if (agent != null) {
 			agentDao.delete(agent);
 		}
