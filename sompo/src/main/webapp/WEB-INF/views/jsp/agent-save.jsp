@@ -7,6 +7,7 @@
 </head>
 <body>
 	<a href="<c:url value="/agent-list" />" >List Agent</a><br />
+	<a href="<c:url value="/contract-list" />" >List Contract</a><br />
 
 	<h1>Add new Agent:</h1>
 	<c:url value="/saveAgent" var="saveAgent"/>

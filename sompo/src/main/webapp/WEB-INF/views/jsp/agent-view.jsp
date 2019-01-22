@@ -5,6 +5,7 @@
 </head>
 <body>
 	<a href="<c:url value="/agent-list" />" >List Agent</a><br />
+	<a href="<c:url value="/contract-list" />" >List Contract</a><br />
 	<h1>View Agent:</h1>	
 	agentId: ${agent.agentId} <br/>
 	agentName: ${agent.agentName} <br/>

@@ -12,7 +12,7 @@ td {
 </style>
 </head>
 <body>
-	<c:url value="/agent-save" var="urlSave"/>
+	<c:url value="/agent-save/" var="urlSave"/>
 	<c:url value="/agent-view/" var="urlView"/>
 	<c:url value="/agent-update/" var="urlUpdate"/>
 	<c:url value="/agentDelete/" var="urlDelete"/>
