@@ -38,7 +38,7 @@ td {
 					<td>${agent.agentId}</td>
 					<td>${agent.agentName}</td>
 					<td>${agent.agentAddress}</td>
-					<td>${agent.agentAddress}</td>
+					<td>${agent.agentPhone}</td>
 					<td> <a href="${urlView}/${agent.agentId}">View</a></td>
 					<td> <a href="${urlUpdate}/${agent.agentId}">Edit</a></td>
 					<td> <a href="${urlDelete}/${agent.agentId}">Delete</a></td>
