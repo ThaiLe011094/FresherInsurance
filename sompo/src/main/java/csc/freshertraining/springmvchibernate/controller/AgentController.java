@@ -18,14 +18,22 @@ public class AgentController {
 
 	@Autowired
 	private AgentService agentService;
-	
+
 	@Autowired
 	private ContractService contractService;
 
 	
-	// Agent Request Mapping
+	// Homepage
+
+	@RequestMapping(value = { "/", "/index" })
+	public String index() {
+		return "index";
+	}
+
 	
-	@RequestMapping(value={"/", "/agent-list"})
+	// Agent Request Mapping
+
+	@RequestMapping(value = {"/agent-list" })
 	public String listAgent(Model model) {
 		model.addAttribute("listAgent", agentService.findAll());
 		return "agent-list";
@@ -43,7 +51,7 @@ public class AgentController {
 		model.addAttribute("agent", agent);
 		return "agent-view";
 	}
-	
+
 	@RequestMapping("/agent-update/{agentId}")
 	public String updateAgent(@PathVariable int agentId, Model model) {
 		Agent agent = agentService.findById(agentId);
@@ -64,19 +72,17 @@ public class AgentController {
 		model.addAttribute("listAgent", agentService.findAll());
 		return "agent-list";
 	}
-	
+
 	@RequestMapping("/agentDelete/{agentId}")
 	public String doDeleteAgent(@PathVariable int agentId, Model model) {
 		agentService.delete(agentId);
 		model.addAttribute("listAgent", agentService.findAll());
 		return "agent-list";
 	}
-	
-	
-	
+
 	// Contract Request Mapping
-	
-	@RequestMapping(value={"/contract-list"})
+
+	@RequestMapping(value = { "/contract-list" })
 	public String listContract(Model model) {
 		model.addAttribute("listContract", contractService.findAll());
 		return "contract-list";
@@ -94,7 +100,7 @@ public class AgentController {
 		model.addAttribute("contract", contract);
 		return "contract-view";
 	}
-	
+
 	@RequestMapping("/contract-update/{contractId}")
 	public String updateContract(@PathVariable int contractId, Model model) {
 		Contract contract = contractService.findById(contractId);
@@ -115,7 +121,7 @@ public class AgentController {
 		model.addAttribute("listContract", contractService.findAll());
 		return "contract-list";
 	}
-	
+
 	@RequestMapping("/contractDelete/{contractId}")
 	public String doDeleteContract(@PathVariable int contractId, Model model) {
 		contractService.delete(contractId);
