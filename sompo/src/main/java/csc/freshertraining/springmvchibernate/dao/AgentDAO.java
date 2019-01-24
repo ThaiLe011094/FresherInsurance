@@ -2,6 +2,7 @@ package csc.freshertraining.springmvchibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,15 @@ public class AgentDAO {
 	public List<Agent> findAll() {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.createQuery("FROM Agent", Agent.class).getResultList();
+	}
+	
+	public List<Agent> searchAll(String keywords) {
+		String hql = "FROM Agent WHERE agentName LIKE :kw "
+				+ "OR agentAddress LIKE :kw "
+				+ "OR agentPhone LIKE :kw";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setParameter("kw", "%" + keywords + "%");
+		List<Agent> list = query.list();
+		return list;
 	}
 }

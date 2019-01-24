@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//import javax.validation.constraints.Size;
+//import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "agent")
 public class Agent {
@@ -16,12 +19,18 @@ public class Agent {
 	private int agentId;
 
 	@Column(name = "agentName")
+//	@Size(min=3, max=100)
+//	@NotEmpty
 	private String agentName;
 
 	@Column(name = "agentAddress")
+//	@Size(min=3, max=100)
+//	@NotEmpty
 	private String agentAddress;
 
 	@Column(name = "agentPhone")
+//	@Size(min=9, max=10)
+//	@NotEmpty
 	private String agentPhone;
 	
 	public Agent() {

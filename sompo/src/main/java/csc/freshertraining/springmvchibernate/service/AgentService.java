@@ -19,6 +19,10 @@ public class AgentService {
 	public List<Agent> findAll() {
 		return agentDAO.findAll();
 	}
+	
+	public List<Agent> search(String keywords) {
+		return agentDAO.searchAll(keywords);
+	}
 
 	public Agent findById(final int agentId) {
 		return agentDAO.findById(agentId);

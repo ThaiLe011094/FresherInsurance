@@ -2,7 +2,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-<title>Sompo Agent</title>
+<title>Sompo Contract</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -23,18 +23,18 @@
 </head>
 
 <body>
-	<c:url value="/agent-save" var="urlSave" />
-	<c:url value="/agent-view" var="urlView" />
-	<c:url value="/agent-update" var="urlUpdate" />
-	<c:url value="/agentDelete" var="urlDelete" />
+	<c:url value="/contract-save" var="cSave" />
+	<c:url value="/contract-view" var="cView" />
+	<c:url value="/contract-update" var="cUpdate" />
+	<c:url value="/contractDelete" var="cDelete" />
 
 	<%@ include file="layout/nav.jsp"%>
 	<div class="container mt-3">
-		<span><a class="navbar-brand">Search for Agents</a></span> <br /> <br />
+		<span><a class="navbar-brand">Search for Contracts</a></span> <br /> <br />
 		<br /> <br /> <br />
-		<c:url value="/searchAgent" var="searchAgent" />
-		<form:form action="${searchAgent}" method="POST"
-			modelAttribute="agent">
+		<c:url value="/searchContract" var="searchContract" />
+		<form:form action="${searchContract}" method="POST"
+			modelAttribute="contract">
 			<!-- search input -->
 			<div class="form-group">
 				<label for="comment">Search for</label> <input class="form-control"
@@ -42,20 +42,20 @@
 			</div>
 			<table class="table table-hover">
 				<tr class="warning">
-					<th>Agent ID</th>
-					<th>Name</th>
-					<th>Address</th>
-					<th>Phone</th>
+					<th>Contract ID</th>
+					<th>Efficiency Date</th>
+					<th>Expiration Date</th>
+					<th>Contract ID</th>
 				</tr>
-				<c:if test="${not empty listAgent}">
-					<c:forEach var="agent" items="${listAgent}">
+				<c:if test="${not empty listContract}">
+					<c:forEach var="contract" items="${listContract}">
 						<tbody id="myTable">
 
 							<tr style="border: 1px black solid">
-								<td class="success">${agent.agentId}</td>
-								<td class="success">${agent.agentName}</td>
-								<td class="success">${agent.agentAddress}</td>
-								<td class="success">${agent.agentPhone}</td>
+								<td class="success">${contract.contractId}</td>
+								<td class="success">${contract.contractEff}</td>
+								<td class="success">${contract.contractExp}</td>
+								<td class="success">${contract.agentId}</td>
 
 							</tr>
 						</tbody>

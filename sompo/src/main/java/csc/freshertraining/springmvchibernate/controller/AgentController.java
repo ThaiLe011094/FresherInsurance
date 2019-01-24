@@ -1,12 +1,18 @@
 package csc.freshertraining.springmvchibernate.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import csc.freshertraining.springmvchibernate.dao.AgentDAO;
 import csc.freshertraining.springmvchibernate.entities.Agent;
 import csc.freshertraining.springmvchibernate.service.AgentService;
 
@@ -79,6 +85,29 @@ public class AgentController {
 		model.addAttribute("listAgent", agentService.findAll());
 		return "agent-list";
 	}
+	
+
+	@RequestMapping("/agent-search")
+	public String search(ModelMap model) {
+		model.addAttribute("listAgent", agentService.findAll());
+		return "agent-search";
+	}
+	
+	@RequestMapping("/search")
+	public String search(ModelMap model, @RequestParam("keywords") String keywords) {
+		List<Agent> list = null;
+		if(keywords.equals("")) {
+			list = agentService.findAll();
+		}
+		else { 
+			list = agentService.search(keywords);
+		}
+		
+		model.addAttribute("listAgent", list);
+		return "agent-search";
+	}
+
+	
 
 	// Contract Request Mapping
 
@@ -110,10 +139,15 @@ public class AgentController {
 
 	@RequestMapping("/saveContract")
 	public String doSaveContract(@ModelAttribute("Contract") Contract contract, Model model) {
+		
+//		if(agentId )
+		
 		contractService.save(contract);
 		model.addAttribute("listContract", contractService.findAll());
 		return "contract-list";
 	}
+	
+	
 
 	@RequestMapping("/updateContract")
 	public String doUpdateContract(@ModelAttribute("Contract") Contract contract, Model model) {
@@ -128,5 +162,25 @@ public class AgentController {
 		model.addAttribute("listContract", contractService.findAll());
 		return "contract-list";
 	}
-
+	
+	@RequestMapping("/contract-search")
+	public String searchContract(ModelMap model) {
+		model.addAttribute("listContract", contractService.findAll());
+		return "contract-search";
+	}
+	
+	@RequestMapping("/searchContract")
+	public String searchContract(ModelMap model, @RequestParam("ckeywords") String ckeywords) {
+		List<Contract> clist = null;
+		if(ckeywords.equals("")) {
+			clist = contractService.findAll();
+		}
+		else { 
+			clist = contractService.search(ckeywords);
+		}
+		
+		model.addAttribute("listContract", clist);
+		return "contract-search";
+	}
+	
 }

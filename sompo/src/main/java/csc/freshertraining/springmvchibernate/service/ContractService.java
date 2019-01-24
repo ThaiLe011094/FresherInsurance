@@ -20,6 +20,10 @@ public class ContractService {
 		return contractDAO.findAll();
 	}
 
+	public List<Contract> search(String keywords) {
+		return contractDAO.searchAll(keywords);
+	}
+
 	public Contract findById(final int contractId) {
 		return contractDAO.findById(contractId);
 	}
